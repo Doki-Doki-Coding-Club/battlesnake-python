@@ -6,8 +6,8 @@ class game_state():
     def __init__(self, data):
      self.height = data["height"]
      self.width = data["width"]
-     self.food = np.zeros((len(data["food"], 2)), dtype=int)
-     for i in range(len(data["food"])):
+     self.food = np.zeros((len(data["food"]), 2), dtype=int)
+     for i in range(len(data["food"]["data"])):
          self.food[i,0] = data["food"]["data"][i]["x"]
          self.food[i,0] = data["food"]["data"][i]["y"]
      self.othersnakes = []
@@ -18,10 +18,10 @@ class game_state():
 
      self.board = np.zeros((self.width, self.height), dtype=int)
      #0 = nothing, 1 = food, 2 = other snake, 3 = this snake
-     for i in range(self.food):
+     for i in range(self.food.shape[0]):
          self.board[self.food[0], self.food[1]] = 1
      for s in range(len(self.othersnakes)):
-         for b in range(len(self.othersnakes[s].length)):
+         for b in range(self.othersnakes[s].length):
              self.board[self.othersnakes[s].body[b,0], self.othersnakes[s].body[b,0]] = 2
      for b in range(self.thissnake.length):
         self.board[self.thissnake.body[b,0], self.thissnake.body[b,0]] = 3
@@ -55,7 +55,7 @@ class snake():
         self.id = data_snake["id"]
         self.length = data_snake["length"]
         self.name = data_snake["name"]
-        bd = data_snake["body"]
+        bd = data_snake["body"]["data"]
         
         self.body = np.zeros((len(bd),2), dtype=int)
         for i in range(self.body.shape[0]):
@@ -69,4 +69,120 @@ class snake():
         return self.body[0]
     def get_tail(self):
         return self.body[-1]
-        
+
+
+
+
+def __main__():
+    example_data = {
+          "food": {
+            "data": [
+              {
+                "object": "point",
+                "x": 0,
+                "y": 9
+              }
+            ],
+            "object": "list"
+          },
+          "height": 20,
+          "id": 1,
+          "object": "world",
+          "snakes": {
+            "data": [
+              {
+                "body": {
+                  "data": [
+                    {
+                      "object": "point",
+                      "x": 13,
+                      "y": 19
+                    },
+                    {
+                      "object": "point",
+                      "x": 13,
+                      "y": 19
+                    },
+                    {
+                      "object": "point",
+                      "x": 13,
+                      "y": 19
+                    }
+                  ],
+                  "object": "list"
+                },
+                "health": 100,
+                "id": "58a0142f-4cd7-4d35-9b17-815ec8ff8e70",
+                "length": 3,
+                "name": "Sonic Snake",
+                "object": "snake",
+                "taunt": "Gotta go fast"
+              },
+              {
+                "body": {
+                  "data": [
+                    {
+                      "object": "point",
+                      "x": 8,
+                      "y": 15
+                    },
+                    {
+                      "object": "point",
+                      "x": 8,
+                      "y": 15
+                    },
+                    {
+                      "object": "point",
+                      "x": 8,
+                      "y": 15
+                    }
+                  ],
+                  "object": "list"
+                },
+                "health": 100,
+                "id": "48ca23a2-dde8-4d0f-b03a-61cc9780427e",
+                "length": 3,
+                "name": "Typescript Snake",
+                "object": "snake",
+                "taunt": ""
+              }
+            ],
+            "object": "list"
+          },
+          "turn": 0,
+          "width": 20,
+          "you": {
+            "body": {
+              "data": [
+                {
+                  "object": "point",
+                  "x": 8,
+                  "y": 15
+                },
+                {
+                  "object": "point",
+                  "x": 8,
+                  "y": 15
+                },
+                {
+                  "object": "point",
+                  "x": 8,
+                  "y": 15
+                }
+              ],
+              "object": "list"
+            },
+            "health": 100,
+            "id": "48ca23a2-dde8-4d0f-b03a-61cc9780427e",
+            "length": 3,
+            "name": "Typescript Snake",
+            "object": "snake",
+            "taunt": ""
+          }
+        }
+    gs = game_state(example_data)
+    print "unit test"
+    print gs.board
+
+if __name__ == "__main__":
+    __main__()
