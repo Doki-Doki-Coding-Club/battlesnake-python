@@ -14,7 +14,7 @@ def flood_fill(data, max_depth):
 
 
 def find_next_move(data, board, x, y, depth):
-        if depth <= 0:
+        if depth == 0:
             return 0
 
         board[x,y] = 3
