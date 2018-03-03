@@ -2,16 +2,11 @@ import bottle
 import os
 import random
 
-from app.game_state import game_state
+
 
 
 
 #basic collision
-def collision():
-    data = bottle.request.json
-    #all has failed!
-    direction = 'left'
-	return direction
 
 
 #food hunting
