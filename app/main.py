@@ -2,7 +2,7 @@ import bottle
 import os
 import random
 
-#import flood_fill
+import game_state
 
 @bottle.route('/')
 def static():
