@@ -2,14 +2,12 @@ import bottle
 import os
 import random
 
-
-
 #basic collision
-
-
 #food hunting
 #flood fill
 #observation area
+
+from game_state import game_state
 
 @bottle.route('/')
 def static():
