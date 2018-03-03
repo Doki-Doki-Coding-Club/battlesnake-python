@@ -53,7 +53,7 @@ def move():
     directions = ['up', 'down', 'left', 'right']
     direction = 'left'
     game = game_state()
-    direction = next_move(width, height)
+    
     print direction
     return {
         'move': direction,
