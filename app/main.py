@@ -7,7 +7,7 @@ import random
 #flood fill
 #observation area
 
-
+from game_state import game_state
 
 @bottle.route('/')
 def static():
