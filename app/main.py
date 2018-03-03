@@ -7,7 +7,7 @@ import random
 #flood fill
 #observation area
 
-from game_state import game_state
+#from game_state import game_state
 
 @bottle.route('/')
 def static():
@@ -44,7 +44,6 @@ def start():
 @bottle.post('/move')
 def move():
     data = bottle.request.json
-
     # TODO: Do things with data
     directions = ['up', 'down', 'left', 'right']
     direction = 'left'
