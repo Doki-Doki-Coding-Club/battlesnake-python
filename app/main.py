@@ -2,7 +2,7 @@ import bottle
 import os
 import random
 
-from game_state import Game_State
+from flood_fill import flood_fill
 
 @bottle.route('/')
 def static():
@@ -43,7 +43,8 @@ def move():
     # TODO: Do things with data
     
     directions = ['up', 'down', 'left', 'right']
-    direction = 'left'
+    gs = game_state(data)
+    directinon = flood_fill(gs, 20)
     print direction
     return {
         'move': direction,
