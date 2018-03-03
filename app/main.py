@@ -52,8 +52,6 @@ def move():
     # TODO: Do things with data
     directions = ['up', 'down', 'left', 'right']
     direction = 'left'
-    game = game_state()
-    
     print direction
     return {
         'move': direction,
