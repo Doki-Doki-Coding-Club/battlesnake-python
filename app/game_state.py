@@ -34,15 +34,10 @@ class game_state():
 		if y > height or y < 0:
 			return 'right'
 		
-	def find_find(self, x, y):
-		pass
 	
-	def near_end(self, x, y):
-		direction = ''
-		if x < 0 or x > width:
-			pass
-		if y < 0 or y > height:
-			pass
+		
+		
+				
 
 
 class snake():
