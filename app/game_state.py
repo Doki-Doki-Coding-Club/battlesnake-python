@@ -2,27 +2,33 @@ import numpy as np
 
 class game_state():
 
-	#initialize
-	def __init__(self, data):
+    #initialize
+    def __init__(self, data):
      self.height = data["height"]
      self.width = data["width"]
      self.food = np.zeros((len(data["food"], 2)), dtype=int)
      for i in range(len(data["food"])):
          self.food[i,0] = data["food"]["data"][i]["x"]
          self.food[i,0] = data["food"]["data"][i]["y"]
-    self.othersnakes = []
-    self.thissnake = snake(data["you"])
-    for i in range(len(data["snakes"]["data"])):
+     self.othersnakes = []
+     self.thissnake = snake(data["you"])
+     for i in range(len(data["snakes"]["data"])):
         if self.thissnake.id != data["snakes"]["data"][i]["id"]:
             self.othersnakes.append(snake(data["snakes"]["data"][i]))
 
+     self.board = np.zeros((self.width, self.height))
+
  
-	def move():
-	#find best move
-	def find_food():
-	#find safest food
-	def read_board():
-	#read board state
+ 
+    def move():
+     pass
+    #find best move
+    def find_food():
+     pass
+    #find safest food
+    def read_board():
+     pass
+    #read board state
 
 class snake():
     def __init__(self, data_snake):
