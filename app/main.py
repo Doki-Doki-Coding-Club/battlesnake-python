@@ -2,7 +2,7 @@ import bottle
 import os
 import random
 
-#from game_state import game_state
+from game_state import game_state
 
 @bottle.route('/')
 def static():
