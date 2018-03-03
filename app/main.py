@@ -6,7 +6,7 @@ import random
 
 @bottle.route('/')
 def static():
-    return "the server is running, but can we win?"
+    return "the server is running, but it only goes left!"
 
 
 @bottle.route('/static/<path:path>')
@@ -43,7 +43,7 @@ def move():
     # TODO: Do things with data
     
     directions = ['up', 'down', 'left', 'right']
-    direction = random.choice(directions)
+    direction = 'left'
     print direction
     return {
         'move': direction,
