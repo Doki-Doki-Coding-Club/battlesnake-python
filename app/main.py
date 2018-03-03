@@ -2,11 +2,11 @@ import bottle
 import os
 import random
 
-from game_state import game_state
+from game_state import Game_State
 
 @bottle.route('/')
 def static():
-    return "the server is running, but it only goes left!"
+    return "the server is running, heroku is cool"
 
 
 @bottle.route('/static/<path:path>')

@@ -1,6 +1,6 @@
 import numpy as np
 
-class game_state():
+class Game_State():
 
     #initialize
     def __init__(self, data):
