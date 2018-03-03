@@ -1,4 +1,7 @@
 import numpy as np
+
+import game_state
+
 def flood_fill(data, max_depth):
     board = data.baord[:]
     snake = data.thissnake
