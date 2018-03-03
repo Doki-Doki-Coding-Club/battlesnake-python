@@ -4,6 +4,18 @@ import random
 
 
 
+#basic collision
+def collision():
+    data = bottle.request.json
+    #all has failed!
+    direction = 'left'
+	return direction
+
+
+#food hunting
+#flood fill
+#observation area
+
 @bottle.route('/')
 def static():
     return "the server is running, but it only goes left!"
@@ -32,7 +44,7 @@ def start():
         'color': '#00FF00',
         'taunt': '{} ({}x{})'.format(game_id, board_width, board_height),
         'head_url': head_url,
-        'name': 'battlesnake-python'
+        'name': 'friend_snake'
     }
 
 
@@ -41,7 +53,6 @@ def move():
     data = bottle.request.json
 
     # TODO: Do things with data
-    
     directions = ['up', 'down', 'left', 'right']
     direction = 'left'
     print direction
