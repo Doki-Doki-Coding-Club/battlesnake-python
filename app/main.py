@@ -53,7 +53,7 @@ def move():
     directions = ['up', 'down', 'left', 'right']
     direction = 'left'
     if data["you"]["body"]["data"][0]["x"] - 1 == 0:
-    	direction = 'right'
+    	direction = 'up'
     print direction
     return {
         'move': direction,
