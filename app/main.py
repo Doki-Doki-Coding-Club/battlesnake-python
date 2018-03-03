@@ -2,8 +2,6 @@ import bottle
 import os
 import random
 
-from game_state import Game_State
-
 
 
 #basic collision
