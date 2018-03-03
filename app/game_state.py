@@ -1,6 +1,6 @@
 import numpy as np
 
-class game_state():
+class Game_State():
 	
 	def head_pos(self, data):
 		self.head = data["you"]["body"]["data"][0]
