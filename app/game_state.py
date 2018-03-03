@@ -7,10 +7,14 @@ class game_state():
 		
 		return self.head
 	
-	def move(self, data):
+	def next_move(self, width, height):
 		x = head_pos(data)["x"]
+		y = head_pos(data)["y"]
+		if x > width or x < 0:
+			return 'up'
+		if y > height or y < 0:
+			return 'right'
 		
-		pass
 	
 	def near_end(self, x, y):
 		if x < 0 or x > width:

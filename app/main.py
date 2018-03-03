@@ -2,7 +2,7 @@ import bottle
 import os
 import random
 
-
+from game_state import game_state
 
 
 
@@ -52,8 +52,7 @@ def move():
     # TODO: Do things with data
     directions = ['up', 'down', 'left', 'right']
     direction = 'left'
-    if data["you"]["body"]["data"][0]["x"] - 1 == 0:
-    	direction = 'up'
+    direction = next_move(width, height)
     print direction
     return {
         'move': direction,
