@@ -6,7 +6,7 @@ import random
 
 @bottle.route('/')
 def static():
-    return "the server is running, but there is not snake?"
+    return "the server is running, but it only goes left!"
 
 
 @bottle.route('/static/<path:path>')
