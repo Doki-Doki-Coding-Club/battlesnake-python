@@ -1,16 +1,16 @@
 import numpy as np
 
-import game_state 
+from game_state import game_state 
 
 def flood_fill(data, max_depth):
-    board = data.baord[:]
+    board = data.board[:]
     snake = data.thissnake
     right = find_next_move(data, board, snake.head[0]+1, snake.head[1], max_depth)
     left = find_next_move(data, board, snake.head[0]-1, snake.head[1], max_depth)
     up = find_next_move(data, board, snake.head[0], snake.head[1]-1, max_depth)
     down = find_next_move(data, board, snake.head[0], snake.head[1]+1, max_depth)
     
-    return ["right", "left", "up", "down"][argmax([right, left, up, down])]
+    return ["right", "left", "up", "down"][np.argmax([right, left, up, down])]
 
 
 def find_next_move(data, board, x, y, depth):
@@ -32,4 +32,5 @@ def find_next_move(data, board, x, y, depth):
         up = find_next_move(data, board, x, y-1, depth-1) + 1
         down = find_next_move(data, board, x, y+1, depth-1) + 1
         
-        return ["right", "left", "up", "down"][argmax([right, left, up, down])]
+        return ["right", "left", "up", "down"][np.argmax([right, left, up, down])]
+        
