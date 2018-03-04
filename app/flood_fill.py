@@ -1,6 +1,6 @@
 import numpy as np
 
-from game_state import game_state 
+import game_state
 
 def flood_fill(data, max_depth):
     board = data.board[:]
@@ -33,4 +33,14 @@ def find_next_move(data, board, x, y, depth):
         down = find_next_move(data, board, x, y+1, depth-1) + 1
         
         return ["right", "left", "up", "down"][np.argmax([right, left, up, down])]
-        
+
+
+
+def __main__():
+    gs = game_state.game_state(game_state.get_example_raw())
+    print "flood fill unit test"
+    print flood_fill(gs, 5)
+    print ""
+
+if __name__ == "__main__":
+    __main__()
