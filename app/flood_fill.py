@@ -39,4 +39,4 @@ def find_next_move(data, board, x, y, depth):
         
         #print([right, left, up, down][np.argmax([right, left, up, down])])
         return [right, left, up, down][np.argmax([right, left, up, down])]
-        
+

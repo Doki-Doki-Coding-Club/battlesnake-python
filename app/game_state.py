@@ -16,16 +16,6 @@ class game_state():
         if self.thissnake.id != data["snakes"]["data"][i]["id"]:
             self.othersnakes.append(snake(data["snakes"]["data"][i]))
 
-     self.board = np.zeros((self.width, self.height), dtype=int)
-     #0 = nothing, 1 = food, 2 = other snake, 3 = this snake
-     for i in range(self.food.shape[0]):
-         self.board[self.food[0], self.food[1]] = 1
-     for s in range(len(self.othersnakes)):
-         for b in range(self.othersnakes[s].length):
-             self.board[self.othersnakes[s].body[b,0], self.othersnakes[s].body[b,1]] = 2
-     for b in range(self.thissnake.length):
-        self.board[self.thissnake.body[b,0], self.thissnake.body[b,1]] = 3
-
     def alltails(self):
         tails = []
         for s in self.othersnakes:
@@ -93,6 +83,34 @@ def get_example_raw():
             "name": "Sonic Snake",
             "object": "snake",
             "taunt": "Gotta go fast"
+          },
+          {
+            "body": {
+              "data": [
+                {
+                  "object": "point",
+                  "x": 11,
+                  "y": 15
+                },
+                {
+                  "object": "point",
+                  "x": 10,
+                  "y": 15
+                },
+                {
+                  "object": "point",
+                  "x": 9,
+                  "y": 15
+                }
+              ],
+              "object": "list"
+            },
+            "health": 100,
+            "id": "48ca23a2-dde8-4d0f-b03a-61cc9780427f",
+            "length": 3,
+            "name": "other Snake",
+            "object": "snake",
+            "taunt": ""
           },
           {
             "body": {
@@ -185,7 +203,7 @@ class snake():
 def __main__():
     gs = game_state(get_example_raw())
     print "unit test"
-    print gs.board
+    #print gs.board
     print ""
 
 if __name__ == "__main__":

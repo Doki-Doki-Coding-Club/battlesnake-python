@@ -3,7 +3,7 @@ import os
 import random
 
 from flood_fill import flood_fill
-
+from game_state import game_state
 @bottle.route('/')
 def static():
     return "the server is running, heroku is cool"
@@ -42,9 +42,10 @@ def move():
 
     # TODO: Do things with data
     
-    directions = ['up', 'down', 'left', 'right']
+    #directions = ['up', 'down', 'left', 'right']
     gs = game_state(data)
-    directinon = flood_fill(gs, 20)
+    #direction = flood_fill(gs, 20)
+    direction = 'left'
     print direction
     return {
         'move': direction,
@@ -56,8 +57,13 @@ def move():
 application = bottle.default_app()
 
 if __name__ == '__main__':
+    gs = game_state(game_state.get_example_raw())
+    direction = flood_fill(gs,10)
+    print direction
     bottle.run(
         application,
         host=os.getenv('IP', '0.0.0.0'),
         port=os.getenv('PORT', '8080'),
         debug = True)
+    print "main.py"
+    bottle.post(game_state.get_example_raw())
