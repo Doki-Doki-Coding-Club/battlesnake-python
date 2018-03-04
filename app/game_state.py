@@ -22,9 +22,9 @@ class game_state():
          self.board[self.food[0], self.food[1]] = 1
      for s in range(len(self.othersnakes)):
          for b in range(self.othersnakes[s].length):
-             self.board[self.othersnakes[s].body[b,0], self.othersnakes[s].body[b,0]] = 2
+             self.board[self.othersnakes[s].body[b,0], self.othersnakes[s].body[b,1]] = 2
      for b in range(self.thissnake.length):
-        self.board[self.thissnake.body[b,0], self.thissnake.body[b,0]] = 3
+        self.board[self.thissnake.body[b,0], self.thissnake.body[b,1]] = 3
 
     def alltails(self):
         tails = []
@@ -182,11 +182,11 @@ class snake():
 
 
 
-
 def __main__():
     gs = game_state(get_example_raw())
     print "unit test"
     print gs.board
+    print ""
 
 if __name__ == "__main__":
     __main__()
