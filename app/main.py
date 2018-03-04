@@ -2,11 +2,11 @@ import bottle
 import os
 import random
 
-import flood_fill
+from flood_fill import flood_fill
 
 @bottle.route('/')
 def static():
-    return "the server is running, but it only goes left!"
+    return "the server is running, heroku is cool"
 
 
 @bottle.route('/static/<path:path>')
@@ -43,7 +43,8 @@ def move():
     # TODO: Do things with data
     
     directions = ['up', 'down', 'left', 'right']
-    direction = 'left'
+    gs = game_state(data)
+    directinon = flood_fill(gs, 20)
     print direction
     return {
         'move': direction,
